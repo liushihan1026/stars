@@ -1,0 +1,41 @@
+server:
+  port: 8090
+  context-path: /stars
+  tomcat:
+    uri-encoding: UTF-8
+spring:
+  mvc:
+    favicon:
+      enabled: true
+  datasource:
+    url: jdbc:mysql://localhost:3306/test?characterEncoding=utf8
+    username: root
+    password: 9527
+    driver-class-name: com.mysql.jdbc.Driver
+    druid:
+      stat-view-servlet:
+        login-username: admin
+        login-password: admin
+      initial-size: 2
+      min-idle: 2
+      max-active: 30
+    schema: classpath:mysql-data.sql
+  thymeleaf:
+    enabled: true
+    encoding: UTF-8
+    mode: LEGACYHTML5
+    prefix: classpath:/templates/
+    suffix: .html
+    content-type: text/html
+    cache: false
+#  resources:
+#    chain:
+#      strategy:
+#        content:
+#          enabled: true
+#          paths: /**
+mybatis:
+  type-aliases-package: com.it.model
+  mapper-locations: classpath:com/it/dao/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
