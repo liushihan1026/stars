@@ -2,6 +2,7 @@ package com.it.controller;
 
 import com.it.model.UserVO;
 import com.it.service.IUserService;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +18,7 @@ public class UserController {
     @Autowired
     private IUserService userService;
 
+    @ApiOperation(value = "findAllUsers")
     @GetMapping("/findAllUsers")
     List<UserVO> findAllUsers(){
         return userService.findUsers();

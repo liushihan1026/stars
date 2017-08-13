@@ -11,7 +11,7 @@ buildscript {
 }
 
 apply plugin: 'java'
-apply plugin: 'eclipse'
+apply plugin: 'idea'
 apply plugin: 'org.springframework.boot'
 
 version = '0.0.1-SNAPSHOT'
@@ -26,9 +26,12 @@ dependencies {
 	compile('org.springframework.boot:spring-boot-starter-web')
 	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
 	compile('net.sourceforge.nekohtml:nekohtml:1.9.22')  //解决thymeleaf对html语法校验严格的问题
+	compile('io.springfox:springfox-swagger2:2.7.0')
+	compile('io.springfox:springfox-swagger-ui:2.7.0')
 	compile('com.alibaba:druid-spring-boot-starter:1.1.2')
 	compile('mysql:mysql-connector-java')
 	compile('org.mybatis.spring.boot:mybatis-spring-boot-starter:1.3.0')
-	compile('com.github.pagehelper:pagehelper-spring-boot-starter:1.1.3')
+	compile('tk.mybatis:mapper:3.4.2')  //通用Mapper
+	compile('com.github.pagehelper:pagehelper-spring-boot-starter:1.1.3')  //分页组件
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
