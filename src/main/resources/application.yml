@@ -8,7 +8,7 @@ spring:
     favicon:
       enabled: true
   datasource:
-    url: jdbc:mysql://localhost:3306/test?characterEncoding=utf8
+    url: jdbc:mysql://localhost:3306/test?useUnicode=true&characterEncoding=UTF-8
     username: root
     password: 9527
     driver-class-name: com.mysql.jdbc.Driver
@@ -20,6 +20,7 @@ spring:
       min-idle: 2
       max-active: 30
     schema: classpath:mysql-data.sql
+    type: com.alibaba.druid.pool.DruidDataSource
   thymeleaf:
     enabled: true
     encoding: UTF-8
@@ -39,3 +40,4 @@ mybatis:
   mapper-locations: classpath:com/it/dao/*.xml
   configuration:
     map-underscore-to-camel-case: true
+debug: true
