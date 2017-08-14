@@ -23,22 +23,66 @@ repositories {
 
 
 dependencies {
-	compile('org.springframework.boot:spring-boot-starter-data-jpa')
-	compile('org.springframework.boot:spring-boot-starter-web')
-	compile('org.springframework.boot:spring-boot-starter-thymeleaf')
-	compile('org.springframework.boot:spring-boot-starter-aop')
-	compile('org.springframework.boot:spring-boot-devtools')
-	compile('net.sourceforge.nekohtml:nekohtml:1.9.22')  //解决thymeleaf对html语法校验严格的问题
+
+	/*
+		Spring Boot
+	*/
+	compile ('org.springframework.boot:spring-boot-starter-data-jpa')
+			('org.springframework.boot:spring-boot-starter-web')
+			('org.springframework.boot:spring-boot-starter-thymeleaf')
+			('org.springframework.boot:spring-boot-starter-aop')
+			("org.springframework.boot:spring-boot-starter-security")
+	        ('org.springframework.boot:spring-boot-devtools')
+
+	/*
+		Mybatis
+	*/
+	compile('org.mybatis.spring.boot:mybatis-spring-boot-starter:1.3.0')
+
+	/*
+		分页组件
+	*/
+	compile('com.github.pagehelper:pagehelper-spring-boot-starter:1.1.3')
+
+	/*
+		通用Mapper
+		注：依赖的javax.persistence:persistence-api:1.0与hibernate-jpa-2.0-api冲突
+	*/
+	compile('tk.mybatis:mapper:3.4.2'){
+		exclude module: 'persistence-api'
+	}
+
+	/*
+		Nekohtml
+		注：解决thymeleaf对html语法校验严格的问题
+	*/
+	compile('net.sourceforge.nekohtml:nekohtml:1.9.22')
+
+	/*
+		Swagger
+	*/
 	compile('io.springfox:springfox-swagger2:2.7.0')
 	compile('io.springfox:springfox-swagger-ui:2.7.0')
+
+	/*
+		Druid
+	*/
 	compile('com.alibaba:druid-spring-boot-starter:1.1.2')
+
+	/*
+		Activiti
+	*/
 	compile('org.activiti:activiti-spring-boot-starter-basic:6.0.0')
+
+	/*
+		Mysql
+	*/
 	compile('mysql:mysql-connector-java')
-	compile('org.mybatis.spring.boot:mybatis-spring-boot-starter:1.3.0')
-	compile('tk.mybatis:mapper:3.4.2'){
-		// 注：依赖 javax.persistence:persistence-api:1.0  与 hibernate-jpa-2.0-api冲突
-		exclude module: 'persistence-api'
-	} //通用Mapper
-	compile('com.github.pagehelper:pagehelper-spring-boot-starter:1.1.3')  //分页组件
+
+	/*
+		Shiro
+		compile('org.apache.shiro:shiro-spring:1.4.0')
+	*/
+
 	testCompile('org.springframework.boot:spring-boot-starter-test')
 }
