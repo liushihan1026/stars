@@ -11,4 +11,14 @@ public class ManController {
         return "/index";
     }
 
+    @GetMapping("/login")
+    public String login(){
+        return "/admin/login";
+    }
+
+    @GetMapping("/logout")
+    public String logout(){
+        return "/admin/login";
+    }
+
 }
